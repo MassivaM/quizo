@@ -1,7 +1,7 @@
 .result {
   font-family: Lilita One;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 6em;
   -webkit-text-stroke-width: 0.04em;
   -webkit-text-stroke-color: black;
@@ -10,12 +10,38 @@
   animation-duration: 1.8s;
   animation-fill-mode: both;
   animation-name: bounceIn;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
   text-align: center;
   justify-content: center;
   z-index: 10;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 29%;
+  background: none;
 }
-
+.result2 {
+  font-family: Lilita One;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 6em;
+  -webkit-text-stroke-width: 0.04em;
+  -webkit-text-stroke-color: black;
+  padding: 0.3em;
+  margin: 0;
+  animation-duration: 1.8s;
+  animation-fill-mode: both;
+  animation-name: bounceIn;
+  animation-iteration-count: 1;
+  text-align: center;
+  justify-content: center;
+  z-index: 10;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 33%;
+  background: none;
+}
 @keyframes bounceIn {
   0%,
   100%,
@@ -43,8 +69,12 @@
   80% {
     transform: scale3d(0.97, 0.97, 0.97);
   }
-  100% {
+  90% {
     opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    opacity: 0;
     transform: scale3d(1, 1, 1);
   }
 }

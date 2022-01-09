@@ -21,6 +21,7 @@ import "./scss/questions.scss";
 import { blue } from "@mui/material/colors";
 import Modal from "react-modal";
 import QuizModal from "./components/quiz-modal";
+
 //array of cards storing their color and number of points
 let cards = [
   { color: COLORS.yellow, points: 1 },

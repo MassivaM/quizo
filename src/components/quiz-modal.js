@@ -1,3 +1,4 @@
+import * as React from "react";
 import "../scss/app.scss";
 import "../scss/questions.scss";
 import { COLORS } from "../colors.js";
@@ -7,41 +8,26 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { questions } from "./questions";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Result from "./result";
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+import Incorrect from "./incorrect";
+import Correct from "./correct";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#000000",
-    },
-  },
-});
-const theme2 = createTheme({
-  palette: {
-    primary: {
-      // Purple and green play nicely together.
-      main: "#C7B9FF",
-    },
-    secondary: {
-      // This is green.A700 as hex.
-      main: "#11cb5f",
-    },
-  },
-});
 function Questions({ index }) {
-  var allo = index;
-  console.log(index);
+  const [visible_correct, setVisibilityCorrect] = React.useState(false);
+  const [visible_incorrect, setVisibilityIncorrect] = React.useState(false);
+
+  function Good_Answer() {
+    setVisibilityCorrect(true);
+    setTimeout(() => {
+      setVisibilityCorrect(false);
+    }, 2000);
+  }
+  function Wrong_Answer() {
+    setVisibilityIncorrect(true);
+    setTimeout(() => {
+      setVisibilityIncorrect(false);
+    }, 2000);
+  }
+
   var a_value = questions[index].A;
   var b_value = questions[index].B;
   var c_value = questions[index].C;
@@ -49,16 +35,14 @@ function Questions({ index }) {
   console.log(typeof answer);
   function press_A() {
     if (answer === "A") {
-      console.log("we enter the if");
-      return <Result word="CORRECT!" />;
+      Good_Answer();
 
       //show Correct
       //upgrade score
       //disable that block
       //close modal
     } else {
-      return <Result word="INCORRECT:(" />;
-
+      Wrong_Answer();
       //show inCorrect
       //upgrade score
       //disable that block
@@ -66,8 +50,42 @@ function Questions({ index }) {
     }
   }
 
+  function press_B() {
+    if (answer === "B") {
+      Good_Answer();
+
+      //show Correct
+      //upgrade score
+      //disable that block
+      //close modal
+    } else {
+      Wrong_Answer();
+      //show inCorrect
+      //upgrade score
+      //disable that block
+      //close modal
+    }
+  }
+  function press_C() {
+    if (answer === "C") {
+      Good_Answer();
+
+      //show Correct
+      //upgrade score
+      //disable that block
+      //close modal
+    } else {
+      Wrong_Answer();
+      //show inCorrect
+      //upgrade score
+      //disable that block
+      //close modal
+    }
+  }
   return (
     <div>
+      {visible_correct && <Correct />}
+      {visible_incorrect && <Incorrect />}
       <Box pt={0.5}>
         <span className="question">{questions[index].question}</span>
       </Box>
@@ -80,6 +98,7 @@ function Questions({ index }) {
               style={{
                 fontWeight: "bold",
                 paddingRight: "0.5em",
+                background: "none",
               }}
             >
               A.
@@ -89,8 +108,14 @@ function Questions({ index }) {
         </Box>
         <br></br>
         <Box pt={0.5}>
-          <button className="button">
-            <span style={{ fontWeight: "bold", paddingRight: "0.5em" }}>
+          <button className="button" onClick={press_B}>
+            <span
+              style={{
+                fontWeight: "bold",
+                paddingRight: "0.5em",
+                background: "none",
+              }}
+            >
               B.
             </span>
             {b_value}
@@ -98,8 +123,14 @@ function Questions({ index }) {
         </Box>
         <br></br>
         <Box pt={0.5}>
-          <button className="button">
-            <span style={{ fontWeight: "bold", paddingRight: "0.5em" }}>
+          <button className="button" onClick={press_C}>
+            <span
+              style={{
+                fontWeight: "bold",
+                paddingRight: "0.5em",
+                background: "none",
+              }}
+            >
               C.
             </span>
             {c_value}
