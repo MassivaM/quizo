@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { questions } from "./questions";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import Result from "./result";
 const style = {
   position: "absolute",
   top: "50%",
@@ -45,6 +45,27 @@ function Questions({ index }) {
   var a_value = questions[index].A;
   var b_value = questions[index].B;
   var c_value = questions[index].C;
+  var answer = questions[index].correct;
+  console.log(typeof answer);
+  function press_A() {
+    if (answer === "A") {
+      console.log("we enter the if");
+      return <Result word="CORRECT!" />;
+
+      //show Correct
+      //upgrade score
+      //disable that block
+      //close modal
+    } else {
+      return <Result word="INCORRECT:(" />;
+
+      //show inCorrect
+      //upgrade score
+      //disable that block
+      //close modal
+    }
+  }
+
   return (
     <div>
       <Box pt={0.5}>
@@ -54,8 +75,13 @@ function Questions({ index }) {
 
       <div style={{ textAlign: "center" }}>
         <Box pt={0.5}>
-          <button className="button">
-            <span style={{ fontWeight: "bold", paddingRight: "0.5em" }}>
+          <button className="button" onClick={press_A}>
+            <span
+              style={{
+                fontWeight: "bold",
+                paddingRight: "0.5em",
+              }}
+            >
               A.
             </span>
             {a_value}

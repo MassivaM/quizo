@@ -7,7 +7,7 @@ export const questions = [
     correct: "B",
   },
   {
-    question: "This essential gs is important so that we can breathe",
+    question: "This essential gas is important so that we can breathe",
     A: "Oxygen",
     B: "Nitrogen",
     C: "Helium",
