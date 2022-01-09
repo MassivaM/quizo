@@ -23,11 +23,13 @@ import Modal from "react-modal";
 import QuizModal from "./components/quiz-modal";
 import { ScoreContext, ScoreProvider, useScore } from "./score-context";
 import { cards } from "./components/cards";
-
+import Timer from "./components/timer";
 let index_card;
+let scoreColor;
 export default function App() {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [cardIsDisabled, setDisabled] = React.useState(false);
+
   const {
     state: { score },
   } = useScore();
@@ -39,7 +41,13 @@ export default function App() {
   function closeModal() {
     setIsOpen(false);
   }
-
+  React.useEffect(() => {
+    if (score >= 0) {
+      scoreColor = COLORS.green;
+    } else {
+      scoreColor = COLORS.red2;
+    }
+  });
   console.log(typeof index_card);
   return (
     <div>
@@ -56,7 +64,9 @@ export default function App() {
               <span className="title" style={{ marginLeft: "1em" }}>
                 score:{" "}
               </span>
-              <span className="score">{score}</span>
+              <span className="score" style={{ color: scoreColor }}>
+                {score}
+              </span>
             </div>
           </Grid>
           <Grid item xs={3}>

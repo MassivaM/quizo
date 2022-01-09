@@ -12,6 +12,7 @@ import Incorrect from "./incorrect";
 import Correct from "./correct";
 import { ScoreContext, ScoreProvider, useScore } from "../score-context";
 import { cards } from "./cards";
+import Timer from "./timer";
 function Questions({ index, closeModal, modalIsOpen }) {
   const [visible_correct, setVisibilityCorrect] = React.useState(false);
   const [visible_incorrect, setVisibilityIncorrect] = React.useState(false);
@@ -53,50 +54,28 @@ function Questions({ index, closeModal, modalIsOpen }) {
   function press_A() {
     if (answer === "A") {
       Good_Answer();
-
-      //upgrade score
-      //disable that block
-      //close modal
     } else {
       Wrong_Answer();
-
-      //upgrade score
-      //disable that block
-      //close modal
     }
   }
 
   function press_B() {
     if (answer === "B") {
       Good_Answer();
-
-      //upgrade score
-      //disable that block
-      //close modal
     } else {
       Wrong_Answer();
-
-      //upgrade score
-      //disable that block
-      //close modal
     }
   }
   function press_C() {
     if (answer === "C") {
       Good_Answer();
-
-      //upgrade score
-      //disable that block
-      //close modal
     } else {
       Wrong_Answer();
-      //upgrade score
-      //disable that block
-      //close modal
     }
   }
   return (
     <div>
+      <Timer Wrong_Answer={Wrong_Answer} />
       {visible_correct && <Correct />}
       {visible_incorrect && <Incorrect />}
       <Box pt={0.5}>
