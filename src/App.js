@@ -10,7 +10,16 @@ import music from "./assets/music.svg";
 import science from "./assets/science.svg";
 import soccer from "./assets/soccer.svg";
 import tech from "./assets/tech.svg";
+import Button from "@mui/material/Button";
+import Questions from "./components/questions";
+import Typography from "@mui/material/Typography";
+
+import DialogTitle from "@mui/material/DialogTitle";
+import Dialog from "@mui/material/Dialog";
 import "./scss/card.scss";
+import "./scss/questions.scss";
+import { blue } from "@mui/material/colors";
+import Modal from "react-modal";
 //array of cards storing their color and number of points
 let cards = [
   { color: COLORS.yellow, points: 1 },
@@ -30,55 +39,65 @@ let cards = [
   { color: COLORS.blue, points: 4 },
   { color: COLORS.purple, points: 4 },
 ];
-
+let index_card;
 export default function App() {
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal(index) {
+    index_card = index;
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={4}></Grid>
-        <Grid item xs={4}>
-          <div className="score-placement">
-            <Quizo />
-          </div>
-        </Grid>
-        <Grid item xs={4}>
-          <div className="score-placement">
-            <span className="title" style={{ marginLeft: "1em" }}>
-              score:{" "}
-            </span>
-            <span className="score"> 0 </span>
-          </div>
-        </Grid>
-        <Grid item xs={3}>
-          <div className="icon">
-            {" "}
-            <img src={soccer}></img>
-            <p className="title">sports</p>
-          </div>
-        </Grid>
-        <Grid item xs={3}>
-          <div className="icon">
-            {" "}
-            <img src={science}></img>
-            <p className="title">science</p>
-          </div>
-        </Grid>
-        <Grid item xs={3}>
-          <div className="icon">
-            {" "}
-            <img src={tech}></img>
-            <p className="title">tech</p>
-          </div>
-        </Grid>
-        <Grid item xs={3}>
-          <div className="icon">
-            <img src={music}></img>
-            <p className="title">music</p>
-          </div>
-        </Grid>
-        {cards.map((card) => (
+    <div>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={4}></Grid>
+          <Grid item xs={4}>
+            <div className="score-placement">
+              <Quizo />
+            </div>
+          </Grid>
+          <Grid item xs={4}>
+            <div className="score-placement">
+              <span className="title" style={{ marginLeft: "1em" }}>
+                score:{" "}
+              </span>
+              <span className="score"> 0 </span>
+            </div>
+          </Grid>
           <Grid item xs={3}>
-            <div className="card-placement">
+            <div className="icon">
+              {" "}
+              <img src={soccer}></img>
+              <p className="title">sports</p>
+            </div>
+          </Grid>
+          <Grid item xs={3}>
+            <div className="icon">
+              {" "}
+              <img src={science}></img>
+              <p className="title">science</p>
+            </div>
+          </Grid>
+          <Grid item xs={3}>
+            <div className="icon">
+              {" "}
+              <img src={tech}></img>
+              <p className="title">tech</p>
+            </div>
+          </Grid>
+          <Grid item xs={3}>
+            <div className="icon">
+              <img src={music}></img>
+              <p className="title">music</p>
+            </div>
+          </Grid>
+          {cards.map((card, index) => (
+            <Grid item xs={3}>
               <div
                 style={{
                   background: card.color,
@@ -88,13 +107,24 @@ export default function App() {
                   color: COLORS.white,
                 }}
                 className="card"
+                onClick={() => openModal(index)}
               >
                 <span style={{ background: card.color }}>{card.points}</span>
               </div>
-            </div>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Example Modal"
+        className="Modal"
+        overlayClassName="Overlay"
+      >
+        <button onClick={closeModal}>close</button>
+        <div>{index_card}</div>
+      </Modal>
+    </div>
   );
 }
