@@ -2,7 +2,7 @@ import * as React from "react";
 import "../scss/timer.scss";
 import { COLORS } from "../colors.js";
 function Timer({ Wrong_Answer }) {
-  const [countdown, setCountdown] = React.useState(5);
+  const [countdown, setCountdown] = React.useState(60);
   React.useEffect(() => {
     let interval = null;
 
