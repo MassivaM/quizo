@@ -1,3 +1,28 @@
+# How to run Quizo 
+
+Install node modules 
+### `npm i`
+
+
+Run the application
+
+### `npm start`
+
+# Important links
+
+1. The UI design for the page can be found [here](https://www.figma.com/file/2j2kzjUlTsf0eUiydkdF1y/Quizo?node-id=0%3A1) 
+With extra time I would've implemented a homepage for users to click on when they want to start playing.
+
+2. the final application has been deployed on Firebase and can be found at this [link](https://quizo-b4c82.web.app/)
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
