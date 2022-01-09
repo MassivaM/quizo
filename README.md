@@ -18,7 +18,7 @@ With extra time I would've implemented a homepage for users to click on when the
 
 
 
-#Extra documentation to run the application with Yarn
+# Extra documentation to run the application with Yarn
 
 
 # Getting Started with Create React App
