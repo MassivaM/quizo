@@ -21,7 +21,7 @@ import "./scss/questions.scss";
 import { blue } from "@mui/material/colors";
 import Modal from "react-modal";
 import QuizModal from "./components/quiz-modal";
-
+import { ScoreContext, ScoreProvider, useScore } from "./score-context";
 //array of cards storing their color and number of points
 let cards = [
   { color: COLORS.yellow, points: 1 },
@@ -44,7 +44,9 @@ let cards = [
 let index_card;
 export default function App() {
   const [modalIsOpen, setIsOpen] = React.useState(false);
-
+  const {
+    state: { score },
+  } = useScore();
   function openModal(index) {
     index_card = index;
     setIsOpen(true);
@@ -69,7 +71,7 @@ export default function App() {
               <span className="title" style={{ marginLeft: "1em" }}>
                 score:{" "}
               </span>
-              <span className="score"> 0 </span>
+              <span className="score">{score}</span>
             </div>
           </Grid>
           <Grid item xs={3}>

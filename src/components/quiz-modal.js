@@ -37,13 +37,12 @@ function Questions({ index }) {
     if (answer === "A") {
       Good_Answer();
 
-      //show Correct
       //upgrade score
       //disable that block
       //close modal
     } else {
       Wrong_Answer();
-      //show inCorrect
+
       //upgrade score
       //disable that block
       //close modal
@@ -54,13 +53,12 @@ function Questions({ index }) {
     if (answer === "B") {
       Good_Answer();
 
-      //show Correct
       //upgrade score
       //disable that block
       //close modal
     } else {
       Wrong_Answer();
-      //show inCorrect
+
       //upgrade score
       //disable that block
       //close modal
@@ -70,13 +68,11 @@ function Questions({ index }) {
     if (answer === "C") {
       Good_Answer();
 
-      //show Correct
       //upgrade score
       //disable that block
       //close modal
     } else {
       Wrong_Answer();
-      //show inCorrect
       //upgrade score
       //disable that block
       //close modal
