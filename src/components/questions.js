@@ -1,41 +1,116 @@
-import "../scss/app.scss";
-import { COLORS } from "../colors.js";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
-function Questions(open, handleClose, index) {
-  return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal>
-    </div>
-  );
-}
-
-export default Questions;
+export const questions = [
+  {
+    question: "The Summer Olympics are held every how many years?",
+    A: "2 years",
+    B: "4 years",
+    C: "6 years",
+    correct: "B",
+  },
+  {
+    question: "This essential gs is important so that we can breathe",
+    A: "Oxygen",
+    B: "Nitrogen",
+    C: "Helium",
+    correct: "A",
+  },
+  {
+    question: "What part of the plant conducts photosynthesis?",
+    A: "Stem",
+    B: "Flower",
+    C: "Leaf",
+    correct: "C",
+  },
+  {
+    question: "Who was the first American Idol winner",
+    A: "Kelly Clarkson",
+    B: "Ryan Starr",
+    C: "Hilary Duff",
+    correct: "A",
+  },
+  {
+    question: "What sport is dubbed the ‘king of sports’? ",
+    A: "Hockey",
+    B: "Football",
+    C: "Soccer",
+    correct: "C",
+  },
+  {
+    question: "What is the nearest planet to the sun? ",
+    A: "Mars",
+    B: "Pluto",
+    C: "Mercury",
+    correct: "C",
+  },
+  {
+    question: "How many hearts does an octopus have?",
+    A: "1",
+    B: "2",
+    C: "3",
+    correct: "C",
+  },
+  {
+    question: "Which classical composer was deaf?",
+    A: "Wolfgang Amadeux Mozart",
+    B: "Ludwig van Beethoven",
+    C: "Johann Sebastian Bach",
+    correct: "B",
+  },
+  {
+    question: "How big is an Olympic sized swimming pool in meters? ",
+    A: "50m x 30m",
+    B: "50m x 25m",
+    C: "60m x 30m",
+    correct: "B",
+  },
+  {
+    question: "What tissue connects muscles to bones?",
+    A: "Tendons",
+    B: "Fibres",
+    C: "Ligaments",
+    correct: "A",
+  },
+  {
+    question:
+      "Dolly was the first ever living creature to be cloned. What type of animal was she?",
+    A: "Sheep",
+    B: "Mouse",
+    C: "Worm",
+    correct: "A",
+  },
+  {
+    question: "Eminem‘s 8 Mile is named after a road in which city?",
+    A: "Chicago",
+    B: "San Fran",
+    C: "Detroit",
+    correct: "C",
+  },
+  {
+    question: "What’s the diameter of a basketball hoop in inches?",
+    A: "14 inches",
+    B: "16 inches",
+    C: "18 inches",
+    correct: "C",
+  },
+  {
+    question: "What is the rarest blood type?",
+    A: "O positive",
+    B: "AB negative",
+    C: "B negative",
+    correct: "B",
+  },
+  {
+    question: "How old is the oldest living tree",
+    A: "4800 years",
+    B: "8100 years",
+    C: "1300 years",
+    correct: "A",
+  },
+  {
+    question:
+      "Who was the first woman ever inducted into the Rock and Roll Hall of Fame?",
+    A: "Janice Joplin",
+    B: "Aretha Franklin",
+    C: "Pat Benatar",
+    correct: "B",
+  },
+];

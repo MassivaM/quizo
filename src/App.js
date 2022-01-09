@@ -9,9 +9,9 @@ import { COLORS } from "./colors.js";
 import music from "./assets/music.svg";
 import science from "./assets/science.svg";
 import soccer from "./assets/soccer.svg";
-import tech from "./assets/tech.svg";
+import nature from "./assets/nature.svg";
 import Button from "@mui/material/Button";
-import Questions from "./components/questions";
+import Questions from "./components/quiz-modal";
 import Typography from "@mui/material/Typography";
 
 import DialogTitle from "@mui/material/DialogTitle";
@@ -20,6 +20,7 @@ import "./scss/card.scss";
 import "./scss/questions.scss";
 import { blue } from "@mui/material/colors";
 import Modal from "react-modal";
+import QuizModal from "./components/quiz-modal";
 //array of cards storing their color and number of points
 let cards = [
   { color: COLORS.yellow, points: 1 },
@@ -51,6 +52,7 @@ export default function App() {
   function closeModal() {
     setIsOpen(false);
   }
+  console.log(typeof index_card);
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -86,8 +88,8 @@ export default function App() {
           <Grid item xs={3}>
             <div className="icon">
               {" "}
-              <img src={tech}></img>
-              <p className="title">tech</p>
+              <img src={nature}></img>
+              <p className="title">nature</p>
             </div>
           </Grid>
           <Grid item xs={3}>
@@ -122,8 +124,7 @@ export default function App() {
         className="Modal"
         overlayClassName="Overlay"
       >
-        <button onClick={closeModal}>close</button>
-        <div>{index_card}</div>
+        <QuizModal index={index_card} />
       </Modal>
     </div>
   );

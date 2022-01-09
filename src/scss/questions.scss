@@ -1,9 +1,14 @@
-.Modal {
-  height: 100%;
-  width: 100%;
+:root {
+  --white-grey: "#C7B9FF";
+}
 
-  background-color: #ffffff;
-  overflow: auto;
+.Modal {
+  background: #efefef;
+  border: 3px solid #000000;
+  box-sizing: border-box;
+  border-radius: 30px;
+
+  padding: 2.5em;
 }
 
 .Overlay {
@@ -36,4 +41,49 @@
     max-width: 500px;
     max-height: 80%;
   }
+}
+.question {
+  font-family: Space Mono;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 47px;
+  color: #000000;
+  font-size: 1.2em;
+}
+
+.button {
+  background-color: var(--white-grey);
+  border: 3px solid black;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.698) inset,
+    0 1px 0 0 rgba(0, 0, 0, 0.075);
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Space Mono;
+  font-size: 1em;
+
+  line-height: 20px;
+  margin: 0;
+  padding: 8px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #ffffff;
+  transition: all 0.2s ease 0s;
+  vertical-align: middle;
+}
+.button:hover {
+  background-color: #f6f6f6;
+  outline: medium none;
+}
+.button:focus {
+  outline: medium none;
+}
+.button:active,
+.button.active {
+  background-color: #dddddd;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.075) inset;
+  outline: medium none;
+  transition: none 0s ease 0s;
 }
