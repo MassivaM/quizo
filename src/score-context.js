@@ -18,8 +18,7 @@ function ScoreReducer(state, action) {
 
 function ScoreProvider({ children }) {
   const [state, dispatch] = React.useReducer(ScoreReducer, { score: 0 });
-  // NOTE: you *might* need to memoize this value
-  // Learn more in http://kcd.im/optimize-context
+
   const value = { state, dispatch };
   return (
     <ScoreContext.Provider value={value}>{children}</ScoreContext.Provider>

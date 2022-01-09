@@ -10,22 +10,30 @@ import { questions } from "./questions";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Incorrect from "./incorrect";
 import Correct from "./correct";
-
+import { ScoreContext, ScoreProvider, useScore } from "../score-context";
+import { cards } from "./cards";
 function Questions({ index }) {
   const [visible_correct, setVisibilityCorrect] = React.useState(false);
   const [visible_incorrect, setVisibilityIncorrect] = React.useState(false);
 
+  const { dispatch } = useScore();
   function Good_Answer() {
     setVisibilityCorrect(true);
     setTimeout(() => {
       setVisibilityCorrect(false);
     }, 2000);
+    for (var i = 0; i < cards[index].points; i++) {
+      dispatch({ type: "increment" });
+    }
   }
   function Wrong_Answer() {
     setVisibilityIncorrect(true);
     setTimeout(() => {
       setVisibilityIncorrect(false);
     }, 2000);
+    for (var i = 0; i < cards[index].points; i++) {
+      dispatch({ type: "decrement" });
+    }
   }
 
   var a_value = questions[index].A;
