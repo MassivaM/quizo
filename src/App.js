@@ -27,6 +27,7 @@ import { cards } from "./components/cards";
 let index_card;
 export default function App() {
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [cardIsDisabled, setDisabled] = React.useState(false);
   const {
     state: { score },
   } = useScore();
@@ -38,6 +39,7 @@ export default function App() {
   function closeModal() {
     setIsOpen(false);
   }
+
   console.log(typeof index_card);
   return (
     <div>
@@ -90,7 +92,7 @@ export default function App() {
                 style={{
                   background: card.color,
                   textAlign: "center",
-
+                  pointerEvents: card.disabled,
                   verticalAlign: "middle",
                   color: COLORS.white,
                 }}
@@ -110,7 +112,11 @@ export default function App() {
         className="Modal"
         overlayClassName="Overlay"
       >
-        <QuizModal index={index_card} />
+        <QuizModal
+          index={index_card}
+          closeModal={closeModal}
+          modalIsOpen={modalIsOpen}
+        />
       </Modal>
     </div>
   );
