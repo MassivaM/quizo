@@ -30,9 +30,8 @@ function Questions({ index, closeModal, modalIsOpen }) {
       Disable(index);
       closeModal();
     }, 1900);
-    for (var i = 0; i < cards[index].points; i++) {
-      dispatch({ type: "increment" });
-    }
+
+    dispatch({ type: "increment", points: cards[index].points });
   }
   function Wrong_Answer() {
     setVisibilityIncorrect(true);
@@ -41,9 +40,8 @@ function Questions({ index, closeModal, modalIsOpen }) {
       Disable(index);
       closeModal();
     }, 1900);
-    for (var i = 0; i < cards[index].points; i++) {
-      dispatch({ type: "decrement" });
-    }
+
+    dispatch({ type: "decrement", points: cards[index].points });
   }
 
   var a_value = questions[index].A;

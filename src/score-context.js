@@ -5,10 +5,10 @@ const ScoreContext = React.createContext({ score: 0 });
 function ScoreReducer(state, action) {
   switch (action.type) {
     case "increment": {
-      return { score: state.score + 1 };
+      return { score: state.score + action.points };
     }
     case "decrement": {
-      return { score: state.score - 1 };
+      return { score: state.score - action.points };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
